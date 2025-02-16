@@ -2,7 +2,7 @@
 const config = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: true
+    project: true,
   },
   plugins: ["@typescript-eslint"],
   extends: [
@@ -50,7 +50,7 @@ const config = {
   },
   ignorePatterns: [
     //'.eslintrc.cjs',
-    'babel.config.js',
+    "babel.config.js",
     //'metro.config.js'
   ],
 };
