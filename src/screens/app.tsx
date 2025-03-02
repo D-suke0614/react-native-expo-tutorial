@@ -5,6 +5,8 @@ import * as ImagePicker from "expo-image-picker";
 import { StatusBar } from "expo-status-bar";
 
 import { Button } from "@/components/button";
+import { CircleButton } from "@/components/circle-button";
+import { IconButton } from "@/components/icon-burtton";
 import { ImageViewer } from "@/components/image-viewer";
 
 const PlaceholderImage =
@@ -14,6 +16,18 @@ const PlaceholderImage =
 const App: FC = () => {
   const [selectedImage, setSelectedImage] = useState<null | string>(null);
   const [showAppOptions, setShowAppOptions] = useState<boolean>(false);
+
+  const onReset = () => {
+    setShowAppOptions(false);
+  };
+
+  const onAddSticker = () => {
+    //
+  };
+
+  const onSaveImageAsync = () => {
+    //
+  };
 
   const pickImageAsync = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -38,7 +52,17 @@ const App: FC = () => {
         />
       </View>
       {showAppOptions ? (
-        <View />
+        <View style={styles.optionsContainer}>
+          <View style={styles.optionsRow}>
+            <IconButton icon="refresh" label="リセット" onPress={onReset} />
+            <CircleButton onPress={onAddSticker} />
+            <IconButton
+              icon="save-alt"
+              label="保存"
+              onPress={onSaveImageAsync}
+            />
+          </View>
+        </View>
       ) : (
         <View style={styles.footerContainer}>
           <Button theme="primary" label="写真を選択" onPress={pickImageAsync} />
@@ -66,6 +90,14 @@ const styles = StyleSheet.create({
   footerContainer: {
     flex: 1 / 3,
     alignItems: "center",
+  },
+  optionsContainer: {
+    position: "absolute",
+    bottom: 80,
+  },
+  optionsRow: {
+    alignItems: "center",
+    flexDirection: "row",
   },
 });
 
