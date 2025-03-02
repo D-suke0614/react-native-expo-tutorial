@@ -1,0 +1,4 @@
+{
+  "**/*.{ts,tsx,js,jsx,cjs,mjs}": ["eslint --fix"],
+  "**/*.{ts,tsx,js,jsx,cjs,mjs,md,json,lintstagedrc}": ["prettier"]
+}
